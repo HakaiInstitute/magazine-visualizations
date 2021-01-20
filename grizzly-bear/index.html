@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<style>
+ 
+
+ .viewof-replay{
+   position: absolute;
+   top: 25px;
+   z-index: 1;
+ }
+
+ .progress1{
+   position: relative;
+   left: 85px;
+   z-index: 1;
+ }
+</style>
+
+
+<div class="viewof-replay"></div>
+<div class="progress1"></div>
+<div class="bearWalks"></div>
+<div class="prog" style="display: none"></div>
+<div class="style"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/d/c7092b8422644ae1.js?v=3";
+(new Runtime).module(define, name => {
+  if (name === "viewof replay") return Inspector.into(".viewof-replay")();
+  if (name === "progress1") return Inspector.into(".progress1")();
+  if (name === "bearWalks") return Inspector.into(".bearWalks")();
+  if (name === "style") return Inspector.into(".style")();
+  if (name === "prog") return Inspector.into(".prog")();
+  return ["counter2"].includes(name) || null;
+});
+</script>
