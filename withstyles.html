@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<style>
+ * {
+margin:0!important; 
+padding:0!important
+}
+body {
+overflow: hidden;
+margin:0; 
+padding:0;
+font-family: helvetica,"helvetica neue",ubuntu,roboto,noto,"segoe ui",arial,sans-serif;
+font-size: 1em;
+line-height: 1em;
+color: #111;
+display: flex;
+flex-flow: row wrap;
+align-items: stretch;
+}
+.viewof-replay  {
+width:50%;
+box-sizing: border-box;
+display: flex;
+align-items: stretch;
+}
+.progress1 {box-sizing: border-box; width:50%;}
+.bearWalks {width:100%;box-sizing: border-box;margin: 1% 0 0 0 !important;}
+.mapbox-improve-map { display: none;}
+
+.legend{
+display:flex;
+flex-flow: row wrap;
+}
+
+.date{order:1;padding: 1% 1% 0 0 !important; font-size: 1.2em;}
+.bar{order:3;width:100%}
+.distance{order:2;padding: 1% 0 !important;}
+
+progress[value],
+progress::-webkit-progress-bar,
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* Get rid of default border in Firefox. */
+  border: none;
+
+  /* Dimensions */
+  width: 100%;
+  height: 20px;
+
+  color: #4faabd; 
+  background: #4faabd; 
+}
+
+progress[value],
+progress::-webkit-progress-value {
+ background:#ddd;
+}
+
+button {
+background: #4faabd;
+color: #fff;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+width: 99%;
+font-family: "nimbus-sans","Arial",sans-serif;
+padding: 1em !important;
+border: none;
+margin: 0 1% 0 0 !important;
+border:none;
+
+}
+button:hover{
+  background-color: #073B4F;
+}
+
+
+</style>
+
+
+<div class="viewof-replay"></div>
+<div class="progress1"></div>
+<div class="bearWalks"></div>
+<div class="prog" style="display: none"></div>
+<div class="style"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/d/c7092b8422644ae1.js?v=3";
+(new Runtime).module(define, name => {
+  if (name === "viewof replay") return Inspector.into(".viewof-replay")();
+  if (name === "progress1") return Inspector.into(".progress1")();
+  if (name === "bearWalks") return Inspector.into(".bearWalks")();
+  if (name === "prog") return Inspector.into(".prog")();
+  return ["counter2"].includes(name) || null;
+});
+</script>
