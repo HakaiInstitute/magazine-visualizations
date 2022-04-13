@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 
-
-<div id="observablehq-chart-e6326cff"></div>
-<div id="observablehq-viewof-currentDate-e6326cff"></div>
+<div id="observablehq-chart-c9fca746"></div>
+<div id="observablehq-viewof-currentDate-c9fca746"></div>
+<div id="observablehq-callAnnotations-c9fca746"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/d/e352c4e8bb647859.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-e6326cff"));
-  if (name === "viewof currentDate") return new Inspector(document.querySelector("#observablehq-viewof-currentDate-e6326cff"));
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-c9fca746"));
+  if (name === "viewof currentDate") return new Inspector(document.querySelector("#observablehq-viewof-currentDate-c9fca746"));
+  if (name === "callAnnotations") return true;
   return ["makeMyAnnotations","update","barData","bars","currData"].includes(name);
 });
 </script>
