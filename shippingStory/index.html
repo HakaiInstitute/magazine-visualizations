@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <div id="observablehq-charTitle-d51f67ad"></div>
+<div id="observablehq-animationLeg-22fcd605"></div>
 
 <div id="observablehq-chart-c9fca746"></div>
 <div id="observablehq-viewof-currentDate-c9fca746"></div>
@@ -10,11 +11,13 @@
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/d/e352c4e8bb647859.js?v=3";
 new Runtime().module(define, name => {
+
   if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-c9fca746"));
   if (name === "viewof currentDate") return new Inspector(document.querySelector("#observablehq-viewof-currentDate-c9fca746"));
   if (name === "callAnnotations") return true;
   if (name === "style") return new Inspector(document.querySelector("#observablehq-style-0a857cbf"));
   if (name === "charTitle") return new Inspector(document.querySelector("#observablehq-charTitle-d51f67ad"));
+  if (name === "animationLeg") return new Inspector(document.querySelector("#observablehq-animationLeg-22fcd605"));
 
   return ["makeMyAnnotations","update","barData","bars","currData"].includes(name);
 });
