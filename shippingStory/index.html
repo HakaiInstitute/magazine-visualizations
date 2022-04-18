@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<div id="observablehq-charTitle-d51f67ad"></div>
 
 <div id="observablehq-chart-c9fca746"></div>
 <div id="observablehq-viewof-currentDate-c9fca746"></div>
@@ -13,6 +14,7 @@ new Runtime().module(define, name => {
   if (name === "viewof currentDate") return new Inspector(document.querySelector("#observablehq-viewof-currentDate-c9fca746"));
   if (name === "callAnnotations") return true;
   if (name === "style") return new Inspector(document.querySelector("#observablehq-style-0a857cbf"));
+  if (name === "charTitle") return new Inspector(document.querySelector("#observablehq-charTitle-d51f67ad"));
 
   return ["makeMyAnnotations","update","barData","bars","currData"].includes(name);
 });
