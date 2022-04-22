@@ -5,10 +5,18 @@
  overflow: hidden;
   }
  
-/* #observablehq-charTitle-d51f67ad{
-  top:100px;
-} */
+#observablehq-charTitle-d51f67ad{
+  font-family: "Nimbus Sans L" sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  position: absolute;
+  top:0px;
+}
 
+#observablehq-animationLeg-22fcd605{
+  position: absolute;
+  top:50px;
+}
   /* .viewof-replay{
     position: absolute;
     top: 12px;
@@ -39,7 +47,7 @@ new Runtime().module(define, name => {
   if (name === "viewof currentDate") return new Inspector(document.querySelector("#observablehq-viewof-currentDate-c9fca746"));
   if (name === "callAnnotations") return true;
   if (name === "style") return new Inspector(document.querySelector("#observablehq-style-0a857cbf"));
-  // if (name === "charTitle") return new Inspector(document.querySelector("#observablehq-charTitle-d51f67ad"));
+  if (name === "charTitle") return new Inspector(document.querySelector("#observablehq-charTitle-d51f67ad"));
   if (name === "animationLeg") return new Inspector(document.querySelector("#observablehq-animationLeg-22fcd605"));
 
   return ["makeMyAnnotations","update","barData","bars","currData"].includes(name);
