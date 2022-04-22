@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<style>
+ 
+  body {
+ overflow: hidden;
+  }
+ 
+/* #observablehq-charTitle-d51f67ad{
+  top:100px;
+} */
+
+  /* .viewof-replay{
+    position: absolute;
+    top: 12px;
+    z-index: 1;
+  }
+ 
+  .progress1{
+    position: relative;
+    left: 85px;
+    z-index: 1;
+    max-width: 550px;
+  } */
+ </style>
 <div id="observablehq-charTitle-d51f67ad"></div>
 <div id="observablehq-animationLeg-22fcd605"></div>
 
@@ -16,7 +39,7 @@ new Runtime().module(define, name => {
   if (name === "viewof currentDate") return new Inspector(document.querySelector("#observablehq-viewof-currentDate-c9fca746"));
   if (name === "callAnnotations") return true;
   if (name === "style") return new Inspector(document.querySelector("#observablehq-style-0a857cbf"));
-  if (name === "charTitle") return new Inspector(document.querySelector("#observablehq-charTitle-d51f67ad"));
+  // if (name === "charTitle") return new Inspector(document.querySelector("#observablehq-charTitle-d51f67ad"));
   if (name === "animationLeg") return new Inspector(document.querySelector("#observablehq-animationLeg-22fcd605"));
 
   return ["makeMyAnnotations","update","barData","bars","currData"].includes(name);
