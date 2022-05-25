@@ -3,26 +3,27 @@
  
 
  
-/* #observablehq-legend-1491e0dc{
+#observablehq-legend-1491e0dc{
   position: absolute;
   font-size: 20px;
-  top:200px;
+  top:20%;
   left: 10px;
-} */
+}
 
  </style>
 <!-- <div id="observablehq-charTitle-d51f67ad"></div> -->
-<div id="observablehq-viewof-SpeciesShow-1491e0dc"></div>
 <div id="observablehq-legend-1491e0dc"></div>
 <div id="observablehq-exampleMap-1491e0dc"></div>
+<div id="observablehq-viewof-SpeciesShow-1491e0dc"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/d/4cbb99b2b43da086.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "viewof SpeciesShow") return new Inspector(document.querySelector("#observablehq-viewof-SpeciesShow-1491e0dc"));
   if (name === "legend") return new Inspector(document.querySelector("#observablehq-legend-1491e0dc"));
   if (name === "exampleMap") return new Inspector(document.querySelector("#observablehq-exampleMap-1491e0dc"));
+  if (name === "viewof SpeciesShow") return new Inspector(document.querySelector("#observablehq-viewof-SpeciesShow-1491e0dc"));
+
   return ["fishToPlot"].includes(name);
 });
 </script>
