@@ -14,7 +14,7 @@
 } */
 
  </style>
-<div id="observablehq-viewof-SpeciesShow-43563874"></div>
+<!-- <div id="observablehq-viewof-SpeciesShow-43563874"></div> -->
 
 <div id="observablehq-exampleMap-43563874"></div>
 
@@ -23,7 +23,7 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 import define from "https://api.observablehq.com/d/16c9631d9ff1b97c.js?v=3";
 new Runtime().module(define, name => {
   if (name === "exampleMap") return new Inspector(document.querySelector("#observablehq-exampleMap-43563874"));
-  if (name === "viewof SpeciesShow") return new Inspector(document.querySelector("#observablehq-viewof-SpeciesShow-43563874"));
+//   if (name === "viewof SpeciesShow") return new Inspector(document.querySelector("#observablehq-viewof-SpeciesShow-43563874"));
   return ["fishToPlot"].includes(name);
 });
 </script>
