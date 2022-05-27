@@ -12,20 +12,30 @@
   /* top:20%; */
   /* left: 5px; */
 }
-
+#observablehq-leg-70697b10{
+  position: absolute;
+  /* font-size: 20px; */
+  /* top:20%; */
+  /* left: 5px; */
+  top: 48vw;
+  left: 5px;
+}
  </style>
-<!-- <div id="observablehq-charTitle-d51f67ad"></div> -->
-<div id="observablehq-viewof-SpeciesShow-1491e0dc"></div>
-<div id="observablehq-exampleMap-1491e0dc"></div>
 
 
+
+
+<div id="observablehq-viewof-SpeciesShow-70697b10"></div>
+
+<div id="observablehq-exampleMap-70697b10"></div>
+<div id="observablehq-leg-70697b10"></div>
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/d/4cbb99b2b43da086.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "exampleMap") return new Inspector(document.querySelector("#observablehq-exampleMap-1491e0dc"));
-  if (name === "viewof SpeciesShow") return new Inspector(document.querySelector("#observablehq-viewof-SpeciesShow-1491e0dc"));
-
+  if (name === "viewof SpeciesShow") return new Inspector(document.querySelector("#observablehq-viewof-SpeciesShow-70697b10"));
+  if (name === "leg") return new Inspector(document.querySelector("#observablehq-leg-70697b10"));
+  if (name === "exampleMap") return new Inspector(document.querySelector("#observablehq-exampleMap-70697b10"));
   return ["fishToPlot"].includes(name);
 });
 </script>
