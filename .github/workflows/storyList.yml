@@ -1,4 +1,4 @@
-name: Download and Make
+name: create story list
 
 on:
   schedule:
