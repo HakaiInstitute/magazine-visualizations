@@ -1,0 +1,38 @@
+name: Download and Make
+
+on:
+  schedule:
+    - cron: "0 20 * * *" #runs at 00:00 UTC everyday
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+      - run: npm install
+      - run: node makeStoryList.js
+
+      - name: Commit files
+        id: commit
+        run: |
+          git config --local user.email "action[bot]@github.com"
+          git config --local user.name "github-actions[bot]"
+          git add --all
+          git commit -m "Add changes" -a
+          echo "::set-output name=push::true force:true"
+          git push
+        shell: bash
