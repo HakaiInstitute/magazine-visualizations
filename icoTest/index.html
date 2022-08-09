@@ -149,6 +149,7 @@
      </style>
 <div id="observablehq-viewof-rects-1cb8dc22"></div>
 <div id="observablehq-viewof-speciesList-1cb8dc22"></div>
+<div id="observablehq-scrubberLegend-664d49ea"></div>
 
 <div id="observablehq-viewof-focus1-1cb8dc22"></div>
 
@@ -216,6 +217,8 @@ new Runtime().module(define, name => {
   if (name === "gp12") return new Inspector(document.querySelector("#observablehq-gp12-1cb8dc22"));
   if (name === "gp12Chart") return new Inspector(document.querySelector("#observablehq-gp12Chart-1cb8dc22"));
   if (name === "legChart") return new Inspector(document.querySelector("#observablehq-legChart-1cb8dc22"));
+  if (name === "scrubberLegend") return new Inspector(document.querySelector("#observablehq-scrubberLegend-664d49ea"));
+
   return ["updateLayer","runZoomUpdate","updateMapbox","circleLocations","hexgeo","createSitePacks","selected","focus","endDate","chart2","heatData","dataWithCount","sitesForDate","hex","hexbyLocation","dataBySite","dataBySiteGroup","dataAsArray","dataBySiteandGroup","startDate","eachDay","getAnnotations","annotations","siteName","labelAnnotations","minRadius","NODE","applySimulation","radius","resetGroup","speciesTableData","dataForBars","locationsSpeciesFound","speciesCountbyMonth","maxSpeciesPerMonth","monthlySpeciesCount","filledLineData","dateExtent","allDates","datesForPlot","data"].includes(name);
 });
 </script>
