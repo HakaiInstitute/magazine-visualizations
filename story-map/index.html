@@ -26,14 +26,17 @@ new Runtime().module(define, name => {
   return ["updateMapbox","datageo"].includes(name);
 });
 
+//////////////////////
+// Report the height of the content.
+//////////////////////
 let height;
   const sendPostMessage = () => {
-    if (height !== window.innerHeight) {
-      height = window.innerHeight;
+    if (height !== document.getElementsByTagName("body")[0].scrollHeight) {
+      height = document.getElementsByTagName("body")[0].scrollHeight;
       window.parent.postMessage({
         frameHeight: height
       }, '*');
-      //console.log(height);
+      console.log(height);
     }
   }
 
