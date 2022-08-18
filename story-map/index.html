@@ -25,4 +25,19 @@ new Runtime().module(define, name => {
   if (name === "viewof search") return new Inspector(document.querySelector("#observablehq-viewof-search-2b77d661"));
   return ["updateMapbox","datageo"].includes(name);
 });
+let height
+
+const sendPostMessage = () => {
+    if (height !== window.innerHeight) {
+      height = window.innerHeight;
+      window.parent.postMessage({
+        frameHeight: height
+      }, '*');
+      //console.log(height);
+    }
+  }
+
+  window.onload = () => sendPostMessage();
+  window.onresize = () => sendPostMessage();
+() => sendPostMessage()
 </script>
