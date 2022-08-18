@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<style>
+ 
+ body {
+ /* overflow: auto; */
+ margin: 0;
+  }
+ 
+/*  */
+ </style>
+
+
+
+<div id="observablehq-viewof-search-2b77d661"></div>
+<div id="observablehq-viewof-map-2b77d661"></div>
+<div id="observablehq-style-2b77d661"></div>
+
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/d/7e01d301e9171bf8.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-2b77d661"));
+  if (name === "style") return new Inspector(document.querySelector("#observablehq-style-2b77d661"));
+  if (name === "viewof search") return new Inspector(document.querySelector("#observablehq-viewof-search-2b77d661"));
+  return ["updateMapbox","datageo"].includes(name);
+});
+</script>

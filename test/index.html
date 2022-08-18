@@ -13,6 +13,11 @@ a:link:not(:hover) {
   text-decoration: none;
 }
 
+.attribution{
+  display: none;
+}
+
+
 </style>
 <!-- <h1><a href="https://github.com/observablehq/examples">Observable Example</a>: <a href="https://github.com/observablehq/examples/tree/main/iframe-resize">Iframe Resize</a></h1>
 <p>This example demonstrates an Observable notebook embedded as an iframe whose height automatically fits its content.</p> -->
@@ -24,7 +29,9 @@ a:link:not(:hover) {
 
 // Select the embed iframe.
 const iframe = document.querySelector("#embed");
-
+// let elmnt = iframe.contentWindow.document.getElementsByTagName("footer")[0];
+// console.log(iframe.contentWindow.document)
+// elmnt.style.display = "none";
 // The Embedly protocol is to send the height as part of a stringified object.
 // In this example, the resize message is the only message being sent; however,
 // the checks are good practice, lest we try to interpret unrelated messages as
