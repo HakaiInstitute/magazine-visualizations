@@ -156,6 +156,7 @@ fill-opacity:.6
 
 <div id="observablehq-viewof-focus1-1cb8dc22"></div>
 <div id="observablehq-viewof-click-01bf99fb"></div>
+<div id="observablehq-viewof-reset-f72f2c26"></div>
 
 <div id="observablehq-viewof-map-1cb8dc22"></div>
 <div id="observablehq-siteName-7ba495cb"></div>
@@ -197,6 +198,7 @@ new Runtime().module(define, name => {
   if (name === "siteName") return new Inspector(document.querySelector("#observablehq-siteName-7ba495cb"));
   // if (name === "style") return true;
   if (name === "viewof click") return new Inspector(document.querySelector("#observablehq-viewof-click-01bf99fb"));
+  if (name === "viewof reset") return new Inspector(document.querySelector("#observablehq-viewof-reset-f72f2c26"));
 
   if (name === "gp1Chart") return new Inspector(document.querySelector("#observablehq-gp1Chart-1cb8dc22"));
   if (name === "viewof speciesList") return new Inspector(document.querySelector("#observablehq-viewof-speciesList-1cb8dc22"));
