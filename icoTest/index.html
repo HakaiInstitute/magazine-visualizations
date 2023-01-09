@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
 <style>
  
 /* .title-image {
@@ -160,7 +163,7 @@ fill-opacity:.6
 
 <div id="observablehq-viewof-map-1cb8dc22"></div>
 <div id="observablehq-siteName-7ba495cb"></div>
-
+<div id="bar-charts">
 <div id="observablehq-gp1-1cb8dc22"></div>
 <div id="observablehq-gp1Chart-1cb8dc22"></div>
 <div id="observablehq-gp2-1cb8dc22"></div>
@@ -185,11 +188,30 @@ fill-opacity:.6
 <div id="observablehq-gp11Chart-1cb8dc22"></div>
 <div id="observablehq-gp12-1cb8dc22"></div>
 <div id="observablehq-gp12Chart-1cb8dc22"></div>
+<button onclick="myfunc()">Download charts</button>
+
+</div>
 <div id="observablehq-legChart-1cb8dc22"></div>
+
+<script>
+
+function myfunc(){
+    // if you are using a different 'id' in the div, make sure you replace it here.
+    var element = document.getElementById("bar-charts");
+    html2canvas(element).then(function(canvas) {
+        canvas.toBlob(function(blob) {
+            window.saveAs(blob, "ICO_Site_Charts.png");
+        });
+    });
+};
+</script>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/d/59936145deac3274.js?v=3";
+
+
+
 new Runtime().module(define, name => {
   if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-1cb8dc22"));
   if (name === "viewof focus1") return new Inspector(document.querySelector("#observablehq-viewof-focus1-1cb8dc22"));
@@ -229,4 +251,7 @@ new Runtime().module(define, name => {
 
   return ["updateLayer","runZoomUpdate","updateMapbox","circleLocations","hexgeo","createSitePacks","selected","focus","endDate","chart2","heatData","dataWithCount","sitesForDate","hex","hexbyLocation","dataBySite","dataBySiteGroup","dataAsArray","dataBySiteandGroup","startDate","eachDay","getAnnotations","annotations","siteName","labelAnnotations","minRadius","NODE","applySimulation","radius","resetGroup","speciesTableData","dataForBars","locationsSpeciesFound","speciesCountbyMonth","maxSpeciesPerMonth","monthlySpeciesCount","filledLineData","dateExtent","allDates","datesForPlot","data"].includes(name);
 });
+
+
+
 </script>
