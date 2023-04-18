@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
 
 <style>
  
@@ -8,8 +6,17 @@
   width: 100%;
 } */
 
+#bar-charts{
+  max-height: 400px;
+  overflow: auto;
+}
 
-  
+@media print {
+  #bar-charts {
+    width: 100%;
+    height: 100% !important;
+    overflow: visible;
+  }
   
   /* .rectImages {
     grid-template-columns: repeat(auto-fill, minmax(160px, 5fr))
@@ -163,7 +170,10 @@ fill-opacity:.6
 
 <div id="observablehq-viewof-map-1cb8dc22"></div>
 <div id="observablehq-siteName-7ba495cb"></div>
+
 <div id="bar-charts">
+  <input id='dlbutton' type="button" value="Download graphs" onclick="myfunc()" visibility="show">
+
 <div id="observablehq-gp1-1cb8dc22"></div>
 <div id="observablehq-gp1Chart-1cb8dc22"></div>
 <div id="observablehq-gp2-1cb8dc22"></div>
@@ -188,23 +198,12 @@ fill-opacity:.6
 <div id="observablehq-gp11Chart-1cb8dc22"></div>
 <div id="observablehq-gp12-1cb8dc22"></div>
 <div id="observablehq-gp12Chart-1cb8dc22"></div>
-<button onclick="myfunc()">Download charts</button>
+
 
 </div>
 <div id="observablehq-legChart-1cb8dc22"></div>
 
-<script>
 
-function myfunc(){
-    // if you are using a different 'id' in the div, make sure you replace it here.
-    var element = document.getElementById("bar-charts");
-    html2canvas(element).then(function(canvas) {
-        canvas.toBlob(function(blob) {
-            window.saveAs(blob, "ICO_Site_Charts.png");
-        });
-    });
-};
-</script>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -212,17 +211,22 @@ import define from "https://api.observablehq.com/d/59936145deac3274.js?v=3";
 
 
 
-new Runtime().module(define, name => {
+const module = new Runtime().module(define, name => {
+
   if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-1cb8dc22"));
   if (name === "viewof focus1") return new Inspector(document.querySelector("#observablehq-viewof-focus1-1cb8dc22"));
   if (name === "viewof rects") return new Inspector(document.querySelector("#observablehq-viewof-rects-1cb8dc22"));
   if (name === "gp1") return new Inspector(document.querySelector("#observablehq-gp1-1cb8dc22"));
   if (name === "siteName") return new Inspector(document.querySelector("#observablehq-siteName-7ba495cb"));
-  // if (name === "style") return true;
+  /* // if (name === "style") return true; */
   if (name === "viewof click") return new Inspector(document.querySelector("#observablehq-viewof-click-01bf99fb"));
   if (name === "viewof reset") return new Inspector(document.querySelector("#observablehq-viewof-reset-f72f2c26"));
+  
+  
 
-  if (name === "gp1Chart") return new Inspector(document.querySelector("#observablehq-gp1Chart-1cb8dc22"));
+  if (name === "gp1Chart") {
+    return new Inspector(document.querySelector("#observablehq-gp1Chart-1cb8dc22"))
+  };
   if (name === "viewof speciesList") return new Inspector(document.querySelector("#observablehq-viewof-speciesList-1cb8dc22"));
   if (name === "gp2") return new Inspector(document.querySelector("#observablehq-gp2-1cb8dc22"));
   if (name === "gp2Chart") return new Inspector(document.querySelector("#observablehq-gp2Chart-1cb8dc22"));
@@ -249,9 +253,35 @@ new Runtime().module(define, name => {
   if (name === "legChart") return new Inspector(document.querySelector("#observablehq-legChart-1cb8dc22"));
   if (name === "scrubberLegend") return new Inspector(document.querySelector("#observablehq-scrubberLegend-664d49ea"));
 
+  if (name === "showButton") {
+    return {
+            pending() {},
+            fulfilled(value) {
+              /* console.log(value) */
+              value == "show" ? document.getElementById("dlbutton").style.visibility="visible" : document.getElementById("dlbutton").style.visibility="hidden"
+
+            }
+    }
+  }
+
+
   return ["updateLayer","runZoomUpdate","updateMapbox","circleLocations","hexgeo","createSitePacks","selected","focus","endDate","chart2","heatData","dataWithCount","sitesForDate","hex","hexbyLocation","dataBySite","dataBySiteGroup","dataAsArray","dataBySiteandGroup","startDate","eachDay","getAnnotations","annotations","siteName","labelAnnotations","minRadius","NODE","applySimulation","radius","resetGroup","speciesTableData","dataForBars","locationsSpeciesFound","speciesCountbyMonth","maxSpeciesPerMonth","monthlySpeciesCount","filledLineData","dateExtent","allDates","datesForPlot","data"].includes(name);
 });
 
 
 
+</script>
+
+<script>
+
+function myfunc(){
+    var divContents = document.getElementById("bar-charts").innerHTML;
+           var a = window.open('', '', 'height=500, width=500');
+           a.document.write('<html>');
+           a.document.write(divContents);
+           a.document.write('</body></html>');
+           a.document.close();
+           a.print();
+
+};
 </script>
