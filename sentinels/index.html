@@ -24,7 +24,7 @@ import define from "https://api.observablehq.com/d/6fa46d52a444b68d@latest.js?v=
 new Runtime().module(define, name => {
   if (name === "viewof time1") return new Inspector(document.querySelector("#observablehq-viewof-time1-b4fd03f9"));
   if (name === "style") return new Inspector(document.querySelector("#observablehq-style-47d1299b"));
-  if (name === "updateMapbox") return new Inspector(document.querySelector("#observablehq-updateMapbox-81f12146"));
+  if (name === "updateMapbox") return true;
 
   if (name === "legendHtml") return new Inspector(document.querySelector("#observablehq-legendHtml-b4fd03f9"));
   if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-81f12146"));
