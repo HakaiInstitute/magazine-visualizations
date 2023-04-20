@@ -12,7 +12,9 @@ overflow: hidden;
 <div id="observablehq-viewof-time1-b4fd03f9" style="padding-bottom:8px;"></div>
 
 <div id="observablehq-legendHtml-b4fd03f9"></div>
-<div id="observablehq-container-b4fd03f9"></div>
+<div id="observablehq-viewof-map-81f12146"></div>
+<div id="observablehq-updateMapbox-81f12146"></div>
+
 <div id="observablehq-style-47d1299b"></div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
@@ -22,9 +24,10 @@ import define from "https://api.observablehq.com/d/6fa46d52a444b68d@latest.js?v=
 new Runtime().module(define, name => {
   if (name === "viewof time1") return new Inspector(document.querySelector("#observablehq-viewof-time1-b4fd03f9"));
   if (name === "style") return new Inspector(document.querySelector("#observablehq-style-47d1299b"));
+  if (name === "updateMapbox") return new Inspector(document.querySelector("#observablehq-updateMapbox-81f12146"));
 
   if (name === "legendHtml") return new Inspector(document.querySelector("#observablehq-legendHtml-b4fd03f9"));
-  if (name === "container") return new Inspector(document.querySelector("#observablehq-container-b4fd03f9"));
+  if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-81f12146"));
   return ["map","dateStr","CollectionsForLastThreeDays","hex","hexgeo","hexbyLocation"].includes(name);
 });
 </script>
