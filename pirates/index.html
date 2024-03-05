@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<style>
+ 
+
+
+#observablehq-animationLeg-22fcd605{
+  position: absolute;
+  font-size: 20px;
+  top:1px;
+  left: 10px;
+}
+
+ </style>
+<!-- <div id="observablehq-charTitle-d51f67ad"></div> -->
+<div id="observablehq-viewof-map-d76ae4e1"></div>
+<div id="observablehq-viewof-time1-d76ae4e1"></div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/d/98d25e06f95e76ab@latest.js?v=4";
+new Runtime().module(define, name => {
+    if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-d76ae4e1"));
+
+  if (name === "viewof time1") return new Inspector(document.querySelector("#observablehq-viewof-time1-d76ae4e1"));
+  return ["CollectionsForLastThreeDays","hex","dataToPlot","search","hexgeo","updateMapbox"].includes(name);
+});
+</script>
