@@ -3,19 +3,16 @@
  
 
  </style>
-<!-- <div id="observablehq-charTitle-d51f67ad"></div> -->
-<div id="observablehq-viewof-map-d76ae4e1"></div>
-<div id="observablehq-viewof-time1-d76ae4e1"></div>
-
+<div id="observablehq-viewof-time1-3de7abf6"></div>
+<div id="observablehq-container-3de7abf6"></div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/98d25e06f95e76ab@latest.js?v=4";
 new Runtime().module(define, name => {
-    if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-d76ae4e1"));
-
-  if (name === "viewof time1") return new Inspector(document.querySelector("#observablehq-viewof-time1-d76ae4e1"));
-  return ["CollectionsForLastThreeDays","hex","dataToPlot","search","hexgeo","updateMapbox"].includes(name);
+  if (name === "viewof time1") return new Inspector(document.querySelector("#observablehq-viewof-time1-3de7abf6"));
+  if (name === "container") return new Inspector(document.querySelector("#observablehq-container-3de7abf6"));
+  return ["CollectionsForLastThreeDays","hex","dataToPlot","search","hexgeo","map"].includes(name);
 });
 </script>
